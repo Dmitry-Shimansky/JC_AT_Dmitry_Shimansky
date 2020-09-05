@@ -1,15 +1,16 @@
 package homeWork;
 
 public class Bottle {
-    public double volume;
+
+    private double volume;
     public SparklingWater water = new SparklingWater();
 
-    public Bottle(double volume, SparklingWater water) {
-        this.volume = volume;
-        this.water = water;
-    }
-
-    public void open() throws InterruptedException {
-        water.isOpened();
+    public void open(double volume) {
+        if (water.hasBubble) {
+            water.hasBubble = false;
+            water.isOpened(volume);
+        } else {
+            water.hasBubble = true;
+        }
     }
 }

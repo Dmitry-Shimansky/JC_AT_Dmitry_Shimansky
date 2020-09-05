@@ -2,17 +2,14 @@ package homeWork;
 
 public class Runner {
     public static void main(String[] args) throws InterruptedException {
+        Bottle bottle1 = new Bottle();
+        bottle1.open(0.5);
 
-        Bubble[] bubbles = new Bubble[10000];
+        Bottle bottle2 = new Bottle();
+        bottle2.open(1);
 
-        for (int i = 0; i < bubbles.length; i++) {
-            bubbles[i] = new Bubble();
-        }
-
-        SparklingWater water = new SparklingWater();
-        water.pump(bubbles);
-        Bottle oneBottle = new Bottle(1, water);
-        oneBottle.open();
+        Bottle bottle3 = new Bottle();
+        bottle3.open(1.5);
     }
 
 }

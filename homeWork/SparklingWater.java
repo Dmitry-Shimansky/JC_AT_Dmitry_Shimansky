@@ -1,29 +1,36 @@
 package homeWork;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class SparklingWater extends Water {
 
     public boolean bottleClose = true;
     public boolean hasBubble = true;
-    public List<Bubble> bubbles = new ArrayList<>();
 
     public void pump (Bubble[] bubbles) {
-        this.bubbles = Arrays.asList(bubbles);
+
     }
 
-    public void isOpened() throws InterruptedException {
-        Thread.sleep(2000);
-        if (!bottleClose) {
-            degas();
+    public void isOpened(double volume) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (bottleClose) {
+            degas(volume);
         }
     }
 
-    public void degas(){
-        for (Bubble i: bubbles) {
-            i.cramp();
-        }
+    public void degas(double volume) {
+            for (int i = 0; i < volume*1000; i++) {
+                try {
+                    Thread.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.print(i+1);
+                new Bubble().cramp();
+            }
+            System.out.println(" ");
+            System.out.println("No more bubbles in the water !");
     }
 }

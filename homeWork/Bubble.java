@@ -2,15 +2,15 @@ package homeWork;
 
 public class Bubble {
 
-    double volume = 0.3;
-    double gas = 0;
+    public static final double VOLUME = 0.3;
+    double gas;
 
-    //public Bubble(double gas) {
-        //this.gas = gas;
-    //}
+    public Bubble() {
+
+    }
 
     public void cramp() {
-        System.out.println("Cramp!");
+        System.out.println(" Cramp!");
     }
 }
 
