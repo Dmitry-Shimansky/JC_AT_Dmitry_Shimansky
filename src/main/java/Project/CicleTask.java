@@ -1,4 +1,4 @@
-package homeWork;
+package main.java.Project;
 
 import java.util.Random;
 
@@ -8,6 +8,7 @@ public class CicleTask {
         cycleTwo();
         part();
     }
+
     static void cycleOne() {
         System.out.println("-Используя while вывести все числа от 0 до 20 в 1 строку через пробел");
         int i = 0;
@@ -18,17 +19,19 @@ public class CicleTask {
         System.out.println(" ");
         System.out.println(" ");
     }
+
     static void cycleTwo() {
         System.out.println("-Используя for вывести каждое нечетное число от 3 до 19 включительно");
         int i = 20;
         for (i = 3; i < 20; i++) {
-            if(i % 2 != 0) {
+            if (i % 2 != 0) {
                 System.out.print(" " + i);
             }
         }
         System.out.println(" ");
         System.out.println(" ");
     }
+
     static void part() {
         System.out.println("-Создать пустой массив типа int и размера n = 7");
         System.out.println("-Заполнить его случайными элементами используя Random.nextInt");
@@ -47,8 +50,7 @@ public class CicleTask {
         System.out.println("-Ввывести все элементы в обратном порядке");
         System.out.print("[");
 
-        for (int i = array.length - 1; i >= 0; i--)
-        {
+        for (int i = array.length - 1; i >= 0; i--) {
             System.out.print(array[i] + " ");
         }
         System.out.print("]");
@@ -68,7 +70,7 @@ public class CicleTask {
         System.out.print("[");
 
         for (int i : array) {
-            i = i*i;
+            i = i * i;
             //Math.pow(i, 2);
             System.out.print(i + " ");
         }
@@ -78,8 +80,8 @@ public class CicleTask {
         System.out.println("-Найти минимальный элемент массива и вывести результат");
 
         int minValue = array[0];
-        for(int i=1; i<array.length; i++){
-            if(array[i] < minValue) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
                 minValue = array[i];
             }
         }
@@ -89,8 +91,8 @@ public class CicleTask {
         System.out.println("-Поменять местами первый и последний элементы и вывести результат");
 
         int tmp = array[0];
-        array[0] = array[array.length-1];
-        array[array.length-1] = tmp;
+        array[0] = array[array.length - 1];
+        array[array.length - 1] = tmp;
 
         System.out.print("[");
 

@@ -1,4 +1,4 @@
-package homeWork;
+package main.java.Project;
 
 public abstract class Water {
     String color;
