@@ -1,4 +1,4 @@
-package main.java.Project;
+package main.java.Tasks.HomeWork.CicleTask;
 
 import java.util.Random;
 

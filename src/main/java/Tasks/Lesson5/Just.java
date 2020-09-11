@@ -1,4 +1,4 @@
-package main.java.Tasks.Lesson1;
+package main.java.Tasks.Lesson5;
 
 public class Just {
     public static void main(String[] args) {
@@ -7,7 +7,8 @@ public class Just {
 
         method();
     }
-    public static void method(){
+
+    public static void method() {
 
         String[] st = "Хавал мальчик 20-й свой обед".split("\\d");
         System.out.println(st.length);

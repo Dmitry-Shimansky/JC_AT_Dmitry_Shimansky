@@ -1,4 +1,4 @@
-package main.java.Tasks.People;
+package main.java.Tasks.Lesson2;
 
 public class Man {
 
