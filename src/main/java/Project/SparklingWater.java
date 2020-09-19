@@ -1,17 +1,41 @@
 package main.java.Project;
 
+import main.java.Project.Staff.Water;
+
 public class SparklingWater extends Water {
 
-    public boolean isOpened = false;
-    public boolean hasBubble = true;
-    public int temperature;
+    private boolean isOpened;
+    private Bubble[] bubbles;
     double riseTemperature = 0;
 
-    public void pump(Bubble[] bubbles) {
-
+    public SparklingWater(double riseTemperature) {
+        this.riseTemperature = riseTemperature;
+        isOpened();
     }
 
-    public void checkIsOpened(double volume) {
+    private void isOpened() {
+        checkIsOpened();
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Starting method setOpened");
+    }
+
+    public void pump(Bubble[] bubbles) {
+        this.bubbles = bubbles;
+        System.out.println("Pumped bubbles into water");
+    }
+
+    public void setOpened() {
+        if (!isOpened) {
+            isOpened = true;
+            System.out.println(String.format("Open a bottle: %s", isOpened));
+        }
+    }
+
+    public void checkIsOpened() {
         Thread thread = new Thread(() -> {
             while (!isOpened) {
                 System.out.println("Bottle is closed...");
@@ -21,45 +45,67 @@ public class SparklingWater extends Water {
                     e.printStackTrace();
                 }
             }
-            degas(volume);
+            degas();
         });
         thread.start();
     }
 
-    private void degas(double volume) {
+    private void degas() {
+        int bubbleSpeed = 10 + 5 * getTemperature();
+        double bubbleSpent = 0;
+        int spentTime = 0;
 
-        if (temperature == 0) {
-            for (int i = 0; i < volume * 1000; i++) {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.print(i + 1);
-                new Bubble("CO2").cramp();
+        while (bubbleSpent <= bubbles.length) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } else {
-            int bubbleSpeed = 10 + temperature * 5;
-            double bubbleCount = volume * 1000;
-            double bubbleSpent = 0;
-            int spentTime = 0;
+            bubbleSpent += bubbleSpeed + (riseTemperature % 60 * 5);
+            spentTime++;
 
-            while (bubbleSpent <= bubbleCount) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                bubbleSpent += bubbleSpeed + (riseTemperature % 60 * 5);
-                spentTime++;
-
-
-                System.out.println("Пузырьков вышло: " + bubbleSpent);
-                System.out.println("Пузырьков осталось: " + (bubbleCount - bubbleSpent));
-                System.out.println("Время: " + spentTime + " сек");
-            }
+            Bubble.cramp();
+            System.out.println("Пузырьков вышло: " + bubbleSpent);
+            System.out.println("Пузырьков осталось: " + (bubbles.length - bubbleSpent));
+            System.out.println("Время: " + spentTime + " сек");
         }
         System.out.println("");
         System.out.println("No more bubbles in the water !");
     }
+
+
+//        if (temperature == 0) {
+//            for (int i = 0; i < volume * 1000; i++) {
+//                try {
+//                    Thread.sleep(10);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.print(i + 1);
+//                new Bubble("CO2").cramp();
+//            }
+//        } else {
+//            int bubbleSpeed = 10 + temperature * 5;
+//            double bubbleCount = volume * 1000;
+//            double bubbleSpent = 0;
+//            int spentTime = 0;
+//
+//            while (bubbleSpent <= bubbleCount) {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                bubbleSpent += bubbleSpeed + (riseTemperature % 60 * 5);
+//                spentTime++;
+//
+//
+//                System.out.println("Пузырьков вышло: " + bubbleSpent);
+//                System.out.println("Пузырьков осталось: " + (bubbleCount - bubbleSpent));
+//                System.out.println("Время: " + spentTime + " сек");
+//            }
+//        }
+//        System.out.println("");
+//        System.out.println("No more bubbles in the water !");
+
 }
