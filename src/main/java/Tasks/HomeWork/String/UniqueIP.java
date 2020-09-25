@@ -1,4 +1,4 @@
-package main.java.Tasks.HomeWork.String;
+package main.java.tasks.homework.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ public class UniqueIP {
         uniqueIp();
     }
 
-    private static String text = "access_log.2020.09.07 212.168.101.5 granted access_log.2020.09.07 212.168.101.6 denied";
+    private static String text = "access_log.2020.09.07 212.168.101.5 granted access_log.2020.09.07 212.168.101.6 denied access_log.2020.09.07 212.168.101.5 granted access_log.2020.09.07 212.168.101.6 denied";
 
     private static void uniqueIp() {
         String[] st = text.split(" ");

@@ -1,6 +1,7 @@
-package main.java.Project;
+package main.java.project;
 
-import main.java.Project.Vessel.Bottle;
+import main.java.project.vessel.Bottle;
+import main.java.project.vessel.Warehouse;
 
 public class Runner {
     public static void main(String[] args) {
@@ -10,6 +11,9 @@ public class Runner {
 
         Bottle bottle2 = new Bottle(1.5,22,0);
         System.out.println("Open bottle2");
+
+
+        System.out.println(new Warehouse());
 
 //        Thread.sleep(5000);
     }

@@ -1,10 +1,6 @@
-package main.java.Tasks.HomeWork.String;
+package main.java.tasks.homework.string;
 
-import java.util.*;
-import java.text.*;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class DateFormat {
 //    написать метод, который выводит в коноль текущую дату и время в формате ниже:
@@ -16,7 +12,11 @@ public class DateFormat {
         Date dateNow = new Date();
         //SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd MM, yyyy 'и время' hh:mm:ss");
         //System.out.println("Сейчас на дворе: " + formatForDateNow.format(dateNow));
+        System.out.println(dateNow);
+        System.out.println("");
+
         System.out.printf("%s %te %<tB, %<tY, %<TH часа %<TM минут", "Сейчас на дворе:\n", dateNow);
 
+        System.out.println("");
     }
 }

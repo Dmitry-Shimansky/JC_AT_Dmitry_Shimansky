@@ -1,6 +1,4 @@
-package main.java.Project.Staff;
-
-import main.java.Project.Staff.Transformable;
+package main.java.project.staff;
 
 public class Sand implements Transformable {
     @Override

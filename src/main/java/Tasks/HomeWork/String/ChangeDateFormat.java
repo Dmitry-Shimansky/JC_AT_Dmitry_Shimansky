@@ -1,9 +1,7 @@
-package main.java.Tasks.HomeWork.String;
+package main.java.tasks.homework.string;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.text.*;
 
 public class ChangeDateFormat {
 
